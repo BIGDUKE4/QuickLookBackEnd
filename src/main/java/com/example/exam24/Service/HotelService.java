@@ -97,8 +97,7 @@ public class HotelService {
             Hotel hotel = optionalHotel.get();
             return convertToHotelDTO(hotel);
         } else {
-            // Handle the case where the hotel with the given ID is not found
-            // You can throw an exception, return a specific message, or handle it as needed
+
             return null;
         }
     }
@@ -146,7 +145,7 @@ public class HotelService {
         if (optionalHotel.isPresent()) {
             Hotel existingHotel = optionalHotel.get();
 
-            // Update the fields based on the provided DTO
+
             existingHotel.setName(updatedHotelDTO.getName());
             existingHotel.setCity(updatedHotelDTO.getCity());
             existingHotel.setStreet(updatedHotelDTO.getStreet());
@@ -154,15 +153,14 @@ public class HotelService {
             existingHotel.setCountry(updatedHotelDTO.getCountry());
             existingHotel.setNumberOfRooms(updatedHotelDTO.getNumberOfRooms());
 
-            // Save the updated hotel
+            // her gemmer jeg det opdaterede hotel
             Hotel updatedHotel = hotelRepository.save(existingHotel);
             return updatedHotel;
 
 
 
         } else {
-            // Handle the case where the hotel with the given ID is not found
-            // You can throw an exception, return a specific message, or handle it as needed
+
             return null;
         }
     }

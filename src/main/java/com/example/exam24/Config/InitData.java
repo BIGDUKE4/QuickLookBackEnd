@@ -24,7 +24,6 @@ public class InitData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        //generate 250 dummy hoteller
         for (int i = 0; i <= 250; i++) {
             Hotel hotel = generateDummyHotel(i);
             hotelRepository.save(hotel);
@@ -41,9 +40,9 @@ public class InitData implements CommandLineRunner {
         hotel.setCreated(LocalDateTime.now());
 
 
-        // Generer et tilfældigt antal værelser for hvert hotel
+
         int numberOfRooms = new Random().nextInt(31) + 10;
-        // Sæt antallet af værelser for hotellet
+
         hotel.setNumberOfRooms(numberOfRooms);
 
         List<Room> rooms = new ArrayList<>();
@@ -51,16 +50,16 @@ public class InitData implements CommandLineRunner {
         for (int j = 1; j <= numberOfRooms; j++) {
             Room room = new Room();
             room.setRoomNumber(j);
-            // Generer et tilfældigt antal senge fra 1 til 4 for hvert værelse
+
             room.setNumberOfBeds(new Random().nextInt(4) + 1);
 
-            // Sæt hotellet for værelset
+
             room.setHotel(hotel);
 
             rooms.add(room);
         }
 
-        // Sæt listen over værelser i hotellet
+
         hotel.setRooms(rooms);
 
         return hotel;

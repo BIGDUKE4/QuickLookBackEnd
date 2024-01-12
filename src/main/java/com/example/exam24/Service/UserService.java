@@ -12,12 +12,12 @@ public class UserService {
     private UserRepository userRepository;
 
     public User createUser(String username, String password) {
-        // Create a new user instance
+        // Skab ny brugerinstans
         User user = new User();
         user.setUsername(username);
         user.setPassword(password);
 
-        // Save the user in the database
+        // Gemmer Brugeren
         return userRepository.save(user);
     }
 }
